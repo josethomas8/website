@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -27,7 +27,7 @@ function HomeScreen (props){
     return <ul className="products">
         {
            products.map(product =>  
-            <li>
+            <li key={product._id}>
                 <div className="product">
                   <Link to={'/products/'+product._id}>
                       <img className="product-image" src={product.images} alt="" srcset=""/></Link>
