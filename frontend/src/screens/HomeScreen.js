@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useSelector, useDispatch } from 'react-redux';
+import { listProducts } from '../actions/productAction';
 
 
 
 
 function HomeScreen (props){
-
-    const [products, setProduct] = useState([]);
+    const productList = useSelector(state => state.productList);
+    const {products, loading, error} = productList;
+    const dispatch = useDispatch();
+    
 
     useEffect(() => {
+        dispatch(listProducts());
         
-        const fetchData = async () =>{
-            const {data} = await axios.get("/api/products");
-            setProduct(data);
-        } 
-        fetchData();
+
         return () =>{
             //
         };
@@ -24,28 +25,27 @@ function HomeScreen (props){
 
 
 
-    return <ul className="products">
-        {
-           products.map(product =>  
-            <li key={product._id}>
-                <div className="product">
-                  <Link to={'/products/'+product._id}>
-                      <img className="product-image" src={product.images} alt="" srcset=""/></Link>
-                    
-                    <div className="product-name">
-                    <Link to={'/products/'+product._id}>{product.name}</Link>
+    return loading ? <div>Loading...</div>:
+    error ? <did>{error}</did>:
+        <ul className="products">
+            {
+            products.map(product =>  
+                <li key={product._id}>
+                    <div className="product">
+                    <Link to={'/products/'+product._id}>
+                        <img className="product-image" src={product.images} alt="" srcset=""/></Link>
+                        
+                        <div className="product-name">
+                        <Link to={'/products/'+product._id}>{product.name}</Link>
+                        </div>
+                        <div className="product-brand">{product.brand}</div>
+                        <div className="product-price">${product.price}</div>
+                        <div className="product-rating">{product.rating} Stars {product.numReiews}</div>
                     </div>
-                    <div className="product-brand">{product.brand}</div>
-                    <div className="product-price">${product.price}</div>
-                    <div className="product-rating">{product.rating} Stars {product.numReiews}</div>
-                </div>
-            </li>)
-        }
+                </li>)
+            }
 
-
-
-
-</ul>
+        </ul>
 
 }
 export default HomeScreen;

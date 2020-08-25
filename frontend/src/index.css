@@ -192,6 +192,6 @@ a:hover{
   border: .1rem #404040 solid;
 
 }
-.button{
+.button.primary{
   background-color: rgb(206, 169, 7);
 }
