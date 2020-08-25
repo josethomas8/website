@@ -24,7 +24,7 @@ function App() {
             <Link to="/">My Website</Link>
             </div>
             <div className="header-links">
-                <a className="cart" href="cart.html">Cart</a>
+                <a className="cart1" href="cart.html">Cart</a>
                 <a href="signin.html">Sign In</a>
             </div>
         </header>

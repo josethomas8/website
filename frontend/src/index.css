@@ -10,6 +10,12 @@ body{
 #root{
   height: 100%;
 }
+button{
+  font-size: 1.6rem;
+}
+.full-width{
+  width: 100%;
+}
 .grid-container{
   display: grid;
   grid-template-areas: 
@@ -40,7 +46,7 @@ body{
   text-decoration: none;
 
 }
-.cart{
+.cart1{
   padding-right: 10px;
 }
 .header-links a:hover{
@@ -194,4 +200,56 @@ a:hover{
 }
 .button.primary{
   background-color: rgb(206, 169, 7);
+}
+
+/* Cart */
+.cart{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem;
+  align-items: flex-start;
+}
+.cart-list{
+  flex: 3 1 60rem;
+}
+.cart-action{
+  flex: 1 1 20rem;
+  background-color : #ece9e9;
+  border-radius: .5rem;
+  padding: 1rem;
+
+
+}
+.cart-list-container{
+  padding: 0;
+  list-style-type: none;
+  padding: 1rem;
+}
+.cart-list-container li{
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: .1rem #808080 solid;
+}
+.cart-list-container li img{
+  max-width: 10rem;
+  max-height: 10rem;
+}
+.cart-list-container li:first-child{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.cart-image{
+  flex: 1 1;
+}
+.cart-name{
+  flex: 8 1;
+}
+.cart-price{
+  flex: 1 1;
+  font-size: 2.5rem;
+  text-align: right;
 }
