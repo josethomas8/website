@@ -11,7 +11,7 @@ function CartScreen(props){
         if(productId){
             dispatch(addToCart(productId, qty));
         }
-    }, [])
+    }, []);
 
 
 
@@ -20,7 +20,7 @@ function CartScreen(props){
             <ul className="cart-list-container">
                 <li>
                     <h3>
-                        Shopping Cart
+                        Shopping Cart 
                     </h3>
                 </li>
 
